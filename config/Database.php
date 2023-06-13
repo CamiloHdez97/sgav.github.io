@@ -1,5 +1,6 @@
 <?php
 
+    namespace App;
     class Database{
 
         private $conn;
@@ -15,15 +16,15 @@
                 'collation' => 'utf8mb4',
                 'flags' => [
 
-                    PDO::ATTR_PERSISTENT => false,
+                    \PDO::ATTR_PERSISTENT => false,
 
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 
-                    PDO::ATTR_EMULATE_PREPARES => true,
+                    \PDO::ATTR_EMULATE_PREPARES => true,
 
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    \PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 
-                    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci'
+                    \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci'
 
                     ],
 
@@ -36,13 +37,13 @@
                 'password' => 'uts123',
                 'flags' => [
 
-                    PDO::ATTR_PERSISTENT => false,
+                    \PDO::ATTR_PERSISTENT => false,
 
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    \PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    \PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 
-                    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                    \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
             
                     ]
 
@@ -51,6 +52,14 @@
             )
 
     );
+
+
+    public function __construct($agrs = []){
+
+        $this->conn = $args['conn'] ?? null;
+
+    }
+
 
     public function getConnection($dbKey){
 
@@ -79,7 +88,6 @@
         return $this->conn;
 
     }
-
 
     };
 

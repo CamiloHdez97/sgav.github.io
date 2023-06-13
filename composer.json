@@ -1,0 +1,21 @@
+{
+    "name": "desarrollo/sgav-app",
+    "description": "SGAV",
+    "type": "project",
+    "authors": [
+        {
+            "name": "CamiloHdez"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    
+        "psr-4":{
+
+            "App\\":"./config",
+            "Models\\":"./models"
+
+        }
+
+    }
+}
